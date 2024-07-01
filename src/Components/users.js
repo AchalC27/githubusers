@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaGithub } from "react-icons/fa6";
 
 function Users({ users }) {  // Correctly destructure the users prop
   return (
@@ -15,7 +16,7 @@ function Users({ users }) {  // Correctly destructure the users prop
                       <img src={curElem.avatar_url} className="rounded" width="155" alt="Profile" />
                     </div>
                     <div className="ml-3 w-100">
-                      <h4 className="mb-0 mt-0 text-left">{curElem.login}</h4>
+                      <h4 className="mb-0 mt-0 text-left">{curElem.login } <FaGithub /> </h4>
                       <div className="p-2 mt-2 bg-light-blue d-flex justify-content-between rounded text-white stats">
                         <div className="d-flex flex-column">
                           <span className="articles">Articles</span>

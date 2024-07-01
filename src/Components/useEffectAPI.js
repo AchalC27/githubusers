@@ -12,6 +12,7 @@ const UseEffectAPI = () => {
       setUsers(await response.json());
       setLoading(false);  // Only set loading to false after data is fetched
     } catch (error) {
+      setLoading(false);
       console.log("The error is " + error);
     }
   }
