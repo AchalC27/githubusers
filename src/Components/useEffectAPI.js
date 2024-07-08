@@ -9,11 +9,12 @@ const UseEffectAPI = () => {
   const getUsers = async () => {
     try {
       const response = await fetch('https://api.github.com/users');
-      setUsers(await response.json());
-      setLoading(false);  // Only set loading to false after data is fetched
-    } catch (error) {
+      const data = await response.json();
+      setUsers(data);
       setLoading(false);
-      console.log("The error is " + error);
+    } catch (error) {
+      console.log("Error fetching users:", error);
+      setLoading(false);
     }
   }
 
@@ -25,11 +26,7 @@ const UseEffectAPI = () => {
     return <Loading />;
   }
 
-  return (
-    <>
-      <Users users={users} />
-    </>
-  );
+  return <Users users={users} />;
 }
 
 export default UseEffectAPI;
